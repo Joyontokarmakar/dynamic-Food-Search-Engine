@@ -1,0 +1,32 @@
+.common_height{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.child_height{
+    height: auto;
+}
+
+.single_meal{
+    align-items: center;
+    display: grid;
+}
+
+.single_meal img{
+    width: 100%;
+}
+
+.single_meal h4{
+    font-size: 16px;
+}
+
+
+#meal_information img{
+    width: 45%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+#meal_information p{
+    font-size: 13px;
+}
