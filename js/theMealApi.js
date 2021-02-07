@@ -11,7 +11,8 @@ document.getElementById('submit').addEventListener("click", function(){
         const mealsDiv = document.getElementById('allMeals');
         const allMeal = mealData.meals;
         mealsDiv.innerHTML = " ";
-
+        const mealDetails = document.getElementById('meal_information');
+        mealDetails.innerHTML = "";
         if(!allMeal){
             const mealDiv = document.createElement('div');
             mealDiv.className = 'col-12 my-2';
@@ -57,6 +58,7 @@ function mealDetail(mealName) {
 
         const mealDetails = document.getElementById('meal_information');
         mealDetails.className = 'single_meal';
+        
         details.forEach(eachMeal => {
         mealDetails.innerHTML = `
             <div class="text-center">
