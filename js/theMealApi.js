@@ -17,7 +17,7 @@ document.getElementById('submit').addEventListener("click", function(){
             const mealInfo = `
                 <div onclick="mealDetail('${meals.idMeal}')" class="single_meal p-3 text-center rounded shadow border child_height">
 
-                    <img src="${meals.strMealThumb}">
+                    <img src="${meals.strMealThumb}" class="border border-1">
                     <h4>${meals.strMeal}</h4>
                     
                 </div>
