@@ -12,12 +12,24 @@ document.getElementById('submit').addEventListener("click", function(){
         const allMeal = mealData.meals;
         mealsDiv.innerHTML = " ";
 
-        allMeal.forEach(meals => {
-
+        if(!allMeal){
             const mealDiv = document.createElement('div');
-            mealDiv.className = 'col-4 my-2';
+            mealDiv.className = 'col-12 my-2';
+            const mealInfo = `
+                <div class="text-danger text-center">
+                    <h4>Sorry, We Don't find any result. Try Again!!</h4>
+                </div>
+            `
+            mealDiv.innerHTML = mealInfo;
+            mealsDiv.appendChild(mealDiv);
+        }
 
-            if(allMeal.length > 1){
+        else{
+
+            allMeal.forEach(meals => {
+                const mealDiv = document.createElement('div');
+                mealDiv.className = 'col-4 my-2';
+
                 const mealInfo = `
                     <div onclick="mealDetail('${meals.idMeal}')" class="single_meal meal_hover p-3 text-center rounded shadow border child_height">
                         <img src="${meals.strMealThumb}" class="border border-1">
@@ -26,22 +38,11 @@ document.getElementById('submit').addEventListener("click", function(){
                 `
                 mealDiv.innerHTML = mealInfo;
                 mealsDiv.appendChild(mealDiv);
-                
-                
-            }
 
-            else if(!allMeal){
-                const mealInfo = `
-                    <div class="text-danger text-center">
-                        <h4>Sorry, We Don't find any result. Try Again!!</h4>
-                    </div>
-                `
-
-                mealDiv.innerHTML = mealInfo;
-                mealsDiv.appendChild(mealDiv);
-            }
+            })
+        }
             
-        })
+        
         
     }
 
