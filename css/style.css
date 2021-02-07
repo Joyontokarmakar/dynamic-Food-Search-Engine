@@ -7,6 +7,10 @@
     height: auto;
 }
 
+.text_color{
+    color: brown;
+}
+
 .single_meal{
     align-items: center;
     display: grid;
@@ -21,6 +25,9 @@
     margin-top: 10px;
 }
 
+.meal_hover:hover{
+    cursor: pointer;
+}
 
 #meal_information img{
     width: 100%;

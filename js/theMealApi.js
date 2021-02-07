@@ -9,21 +9,38 @@ document.getElementById('submit').addEventListener("click", function(){
         console.log(mealData.meals)
 
         const mealsDiv = document.getElementById('allMeals');
-        const allMeal = mealData.meals
+        const allMeal = mealData.meals;
+        mealsDiv.innerHTML = " ";
+
         allMeal.forEach(meals => {
+
             const mealDiv = document.createElement('div');
             mealDiv.className = 'col-4 my-2';
-    
-            const mealInfo = `
-                <div onclick="mealDetail('${meals.idMeal}')" class="single_meal p-3 text-center rounded shadow border child_height">
 
-                    <img src="${meals.strMealThumb}" class="border border-1">
-                    <h4>${meals.strMeal}</h4>
-                    
-                </div>
-            `
-            mealDiv.innerHTML = mealInfo;
-            mealsDiv.appendChild(mealDiv);
+            if(allMeal.length > 1){
+                const mealInfo = `
+                    <div onclick="mealDetail('${meals.idMeal}')" class="single_meal meal_hover p-3 text-center rounded shadow border child_height">
+                        <img src="${meals.strMealThumb}" class="border border-1">
+                        <h4>${meals.strMeal}</h4>
+                    </div>
+                `
+                mealDiv.innerHTML = mealInfo;
+                mealsDiv.appendChild(mealDiv);
+                
+                
+            }
+
+            else if(!allMeal){
+                const mealInfo = `
+                    <div class="text-danger text-center">
+                        <h4>Sorry, We Don't find any result. Try Again!!</h4>
+                    </div>
+                `
+
+                mealDiv.innerHTML = mealInfo;
+                mealsDiv.appendChild(mealDiv);
+            }
+            
         })
         
     }
@@ -38,10 +55,13 @@ function mealDetail(mealName) {
         console.log(details);
 
         const mealDetails = document.getElementById('meal_information');
+        mealDetails.className = 'single_meal';
         details.forEach(eachMeal => {
         mealDetails.innerHTML = `
-            <img  src="${eachMeal.strMealThumb}" alt="food image">
-            <h4>${eachMeal.strMeal}</h4>
+            <div class="text-center">
+                <img  src="${eachMeal.strMealThumb}" alt="food image">
+                <h4>${eachMeal.strMeal}</h4>
+            </div>
             <hr>  
             <p><b>Ingredients :</b></p>
             <p><span>${eachMeal.strMeasure1}</span> <span>${eachMeal.strIngredient1}</span> </p>
